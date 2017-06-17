@@ -1,7 +1,6 @@
 /* global describe, it */
 
 var assert = require('assert')
-var fs = require('fs')
 var parse = require('..').parse
 var serialize = require('..').serialize
 
@@ -25,7 +24,7 @@ describe('smiles', function () {
   ]
 
   var examples = exampleFiles.map(function (exampleFile) {
-    return JSON.parse(fs.readFileSync('test/' + exampleFile + '.json').toString())
+    return require('./' + exampleFile)
   })
 
   describe('parser', function () {
